@@ -24,6 +24,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Setup variable
+        run: export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/src/test/resources/credentials.json
       - name: Build with Maven
         run: mvn test
 
