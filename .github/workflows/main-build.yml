@@ -24,6 +24,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
       - name: Setup variable
         run: export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/src/test/resources/credentials.json
       - name: Build with Maven
