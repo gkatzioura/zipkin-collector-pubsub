@@ -29,5 +29,4 @@ jobs:
         with:
           fetch-depth: '0'
       - name: Build with Maven
-        run: GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/src/test/resources/credentials.json mvn test
-
+        run: GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/src/test/resources/credentials.json mvn -s ./ci/settings.xml verify sonar:sonar -Dsonar.login=$SONAR_TOKEN
