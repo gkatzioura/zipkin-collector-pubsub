@@ -39,9 +39,8 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_KEY }} # Value of the GPG private key to import
           gpg-passphrase: ${{ secrets.PASSPHRASE }} # env variable for GPG private key passphrase
       - name: Build with Maven
-        with:
-          cache: 'maven'
         run: |
+          export GPG_TTY=$(tty)
           git config --global user.email "refill-rate-limiter@github.com"
           git config --global user.name "Refill Rate Limiter release"
           echo $GPG_KEY | base64 --decode > refill-rate-limiter.gpg
