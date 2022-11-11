@@ -36,4 +36,4 @@ jobs:
         run: |
           git config --global user.email "zipkin-collector-pubsub@github.com"
           git config --global user.name "zipkin-collector-pubsub release"
-          GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/src/test/resources/credentials.json mvn test
+          GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/src/test/resources/credentials.json mvn -B test
