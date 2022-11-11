@@ -34,12 +34,16 @@ jobs:
           java-version: 11
           distribution: 'adopt'
           cache: 'maven'
-          server-username: ${{ secrets.CENTRAL_USERNAME }} # env variable for username in deploy
-          server-password: ${{ secrets.CENTRAL_PASSWORD }} # env variable for token in deploy
+#          server-username: ${{ secrets.CENTRAL_USERNAME }}
+          server-username: "my-username"
+#          server-password: ${{ secrets.CENTRAL_PASSWORD }}
+          server-password: "my-password"
           gpg-private-key: ${{ secrets.GPG_KEY }} # Value of the GPG private key to import
-          gpg-passphrase: ${{ secrets.PASSPHRASE }} # env variable for GPG private key passphrase
+#          gpg-passphrase: ${{ secrets.PASSPHRASE }} # env variable for GPG private key passphrase
+          gpg-passphrase: "my-pass"
       - name: Build with Maven
         run: |
+          echo ~/.m2/settings.xml
           export GPG_TTY=$(tty)
           git config --global user.email "refill-rate-limiter@github.com"
           git config --global user.name "Refill Rate Limiter release"
