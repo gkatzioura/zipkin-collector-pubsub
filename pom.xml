@@ -56,7 +56,7 @@
     <properties>
         <maven.plugin.api.version>3.0</maven.plugin.api.version>
         <maven.plugin.annotations.version>3.4</maven.plugin.annotations.version>
-        <sonar.organization>refil-rate-limiter</sonar.organization>
+        <sonar.organization>io-github-gkatzioura</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
