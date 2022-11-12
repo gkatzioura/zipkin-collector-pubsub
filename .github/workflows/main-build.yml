@@ -38,6 +38,7 @@ jobs:
           server-password: MAVEN_CENTRAL_TOKEN
           gpg-private-key: ${{ secrets.GPG_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
+          server-id: ossrh
       - name: Build with Maven
         env:
           MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
@@ -47,7 +48,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           export GPG_TTY=$(tty)
-          cat /home/runner/.m2/settings.xml|sed 's/github/ossrh' > /home/runner/.m2/ossrh.xml
           git config --global user.email "zipkin-collector-pubsub@github.com"
           git config --global user.name "zipkin-collector-pubsub release"
           GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/src/test/resources/credentials.json mvn -s /home/runner/.m2/ossrh.xml -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=gkatzioura_zipkin-collector-pubsub
