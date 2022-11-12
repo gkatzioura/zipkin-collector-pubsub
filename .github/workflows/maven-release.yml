@@ -40,4 +40,4 @@ jobs:
           export GPG_TTY=$(tty)
           git config --global user.email "zipkin-collector-pubsub@github.com"
           git config --global user.name "zipkin-collector-pubsub release"
-          GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/src/test/resources/credentials.json mvn -Dusername=$MAVEN_USERNAME -Dpassword=$MAVEN_CENTRAL_TOKEN -B release:prepare release:perform
+          GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/src/test/resources/credentials.json mvn -B release:prepare release:perform
