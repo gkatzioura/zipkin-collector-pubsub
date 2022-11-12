@@ -38,6 +38,7 @@ jobs:
           server-password: MAVEN_CENTRAL_TOKEN
           gpg-private-key: ${{ secrets.GPG_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
+          server-id: sonatype-nexus-snapshots
       - name: Build with Maven
         env:
           MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
